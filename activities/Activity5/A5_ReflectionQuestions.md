@@ -14,7 +14,7 @@ receive full credit on the interpretive questions.
    report whether `reachable(Entrance, Treasure Room)` came back **TRUE** or **FALSE** when you
    asked the Oracle.
 **Answer** One tunnel`(X,Y)` fact from the Tunnel Rules tab is:
-`tunnel(bat_roost, entrance).
+`tunnel(bat_roost, entrance).`
 When I asked the Oracle whether `reachable(Entrance, Treasure Room)` was possible, the result was **TRUE**. This means that there is a route from the Entrance to the Treasure Room. The Oracle explored the tunnelsand eventually found a route that reached the Treasure Room.
 
    
@@ -23,12 +23,12 @@ When I asked the Oracle whether `reachable(Entrance, Treasure Room)` was possibl
    words, explain what makes the second line "recursive."
 
 **Answer** The base case is:
-`reachable(X,Y) :-tunnel(X,Y).
+`reachable(X,Y) :-tunnel(X,Y).`
 
 This is the base case because it checks whether there is a tunnel that goes directly from X to Y. If there is a direct tunnel, the destination has been reached and no more recursive steps are necessary.
 
 The recursive case ir:
-`reachable(X,Y) :-tunnel(X,Z), reachable(Z,Y).
+`reachable(X,Y) :-tunnel(X,Z), reachable(Z,Y).`
 
 This is the recursive case because the rule uses `reachable` again inside its own definition. It first moves from X to an intermediate chamber Z and then checks whether Z can eventually reach Y. This allows the search to continue through several tunnels until reaches the destination.
 
@@ -46,7 +46,7 @@ This is the recursive case because the rule uses `reachable` again inside its ow
 **Answer** According to the app's brute-force count, there are exactly **2 possible paths** from Entrance to Treasure Room, without repeated chamber.
 
 1. `Entrance - Torch Hallway - Crustal Cavern - Treasure Room`
-2. `Entrance - Bast Roost - Echo Chamber - Torch Hallway - Crystal Cavern - Treassure Room
+2. `Entrance - Bast Roost - Echo Chamber - Torch Hallway - Crystal Cavern - Treassure Room`
 
 The first path has 3 tunnels, while the second path has 5 tunnels.
 
